@@ -7,19 +7,22 @@
     <thead>
       <tr>
         <th scope="col">Critère</th>
-		{% for notations in grille.notations %}
+		{% for notations in grille %}
 			<th scope="col"> {{ notations }} </th>
 		{% endfor %}
       </tr>
     </thead>
     <tbody>
 	<!-- Double boucle for à modifier (problème de numérotation : impossible à utiliser (changement du Dictionnaire nécessaire -->
-	{% for critere in grille.criteres %}
-      <tr>
-		{% for c in grille.criteres.1 %} <!-- Impossible d'utiliser "critere" au lieu de "1" -->
-			<td> {{ c }} </td>
-		{% endfor %}
-      </tr>
+	{% for numero in grille %}
+		{% if numero %}
+		  <tr>
+			{% for c in criteres %}
+				<td> {{ c }} </td>
+			{% endfor %}
+		  </tr>
+		{% endif %}
+
 	{% endfor %}
     </tbody>
   </table>
